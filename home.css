@@ -1,0 +1,330 @@
+ 
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    .hero-section { background: linear-gradient(135deg, #2d004d, #000); color: white; padding: 60px 0; }
+    .hero-section h1 span { color: #00aaff; }
+    .vendor-card img, .services-section .card img {
+      border-radius: 10px; height: 200px; object-fit: cover; width: 100%;
+    }
+    .clients-section { background: #f8f9fa; padding: 40px 0; text-align: center; overflow: hidden; }
+    .clients-slider {
+      display: flex;
+      width: max-content;
+      animation: marquee 20s linear infinite;
+    }
+    .clients-slider img {
+      width: 60px; height: 60px;
+      object-fit: contain; border-radius: 50%;
+      margin: 0 15px;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @media (min-width: 768px) {
+      .clients-slider img { width: 80px; height: 80px; margin: 0 25px; }
+    }
+    footer { background: #f9f9f9; padding: 40px 20px; font-size: 14px; }
+    footer .social-icons a { margin: 0 8px; color: #333; font-size: 18px; }
+
+/* nav bar */
+.nav-btn{
+    border: 2px solid black;
+    border-radius: 50px;
+    color: black;
+}
+
+/* tabs in hero section*/
+ .card {
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .nav-tabs {
+            border-bottom: none;
+        }
+        .nav-tabs .nav-link {
+            border: none;
+            color: #495057;
+            font-weight: 500;
+            padding: 1rem 1.5rem;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .nav-tabs .nav-link:hover {
+            color: #0d6efd;
+            border-bottom-color: #e9ecef;
+        }
+        .nav-tabs .nav-link.active {
+            color: #0d6efd;
+            border-bottom: 3px solid #0d6efd;
+            background-color: transparent;
+        }
+        .tab-titles h5 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .tab-titles p {
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+        .btn-group-toggle .btn {
+            border-radius: 10px;
+            font-weight: 600;
+            background-color: #e9ecef;
+            color: #495057;
+            border: 1px solid #ced4da;
+            transition: all 0.3s ease;
+        }
+        .btn-check:checked + .btn.btn-outline-primary {
+            background-color: #0d6efd;
+            color: white;
+            border-color: #0d6efd;
+        }
+        .form-control, .form-select {
+            border-radius: 10px;
+        }
+        .form-check-input:checked {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+        }
+        .input-group .form-control:first-child,
+        .input-group .form-select:first-child {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        .input-group .form-control:last-child {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        /* Hero section specific styles */
+        .hero-section {
+            background: linear-gradient(to right, #2c3e50, #4a148c);
+            color: #fff;
+            padding: 5rem 0;
+            
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        .hero-section h1 span {
+            font-weight: 300;
+        }
+        .hero-section p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #ccc;
+        }
+        .hero-section .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .hero-section .icon-item img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 0.5rem;
+        }
+
+    
+
+
+ #vendorCarousel .custom-arrow {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  margin: 0 1rem;
+}
+
+#vendorCarousel .carousel-indicators {
+  /* Position the dots below the carousel items */
+  position: static;
+  margin-top: 1.5rem; /* Adjust the top margin to create space */
+}
+
+/* Indicators (dots) */
+#vendorCarousel .carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #999;
+}
+#vendorCarousel .carousel-indicators .active {
+  background-color: #000;
+}
+
+/* Custom styles for the overlay */
+.vendor-card {
+  position: relative;
+}
+
+.img-overlay-container {
+  position: relative;
+  overflow: hidden; /* Ensures the overlay stays within the image boundaries */
+}
+
+.img-overlay-container .card-img-top {
+  width: 100%;
+  height: 240px; /* Set a fixed height for consistency */
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.overlay-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+  color: #fff;
+  padding: 1rem;
+}
+
+.vendor-name-and-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.vendor-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.rating-badge {
+  background-color: #007bff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.rating-badge .star-icon {
+  color: #ffc107; /* Yellow star */
+  margin-right: 0.25rem;
+}
+
+.vendor-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+  /*  */
+  .card {
+  position: relative; /* Needed for absolute positioning of children */
+  overflow: hidden; /* Ensures the image and overlay stay within card bounds */
+}
+
+.image-overlay-container {
+  position: relative; /* Establish a new positioning context for the overlay */
+  width: 100%;
+  height: auto; /* Or a fixed height if preferred */
+}
+
+.image-overlay-container img {
+  width: 100%;
+  height: auto;
+  display: block; /* Removes extra space below image */
+}
+
+.robot-info-overlay {
+  position: absolute;
+  bottom: 0; /* Position at the bottom of the image */
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  color: white;
+  padding: 8px 10px;
+  display: flex; /* Use flexbox for spacing name and rating */
+  justify-content: space-between; /* Pushes name to left, rating to right */
+  align-items: center;
+  font-size: 0.9em;
+}
+
+.robot-name {
+  font-weight: bold;
+}
+
+.robot-rating {
+  /* Add any specific styling for the rating, e.g., a background or different color */
+  background-color: #007bff; /* Example: blue background for rating */
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.8em;
+}
+
+/* Optional: Adjust card-body padding if needed */
+.card-body {
+  padding-top: 15px; /* Adjust as necessary */
+}
+
+  
+.clients-section {
+  background: #f8f9fa;
+  padding: 40px 0;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.clients-track {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.clients-slide {
+  display: flex;
+  gap: 60px;
+  animation: scroll 15s linear infinite;
+  /* total width doubled so that duplicate set continues seamlessly */
+  width: max-content;
+}
+
+.clients-slide img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Seamless scrolling */
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+
+
+
+/* vendor */
