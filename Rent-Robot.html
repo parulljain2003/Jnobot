@@ -1,0 +1,339 @@
+<!DOCTYPE a.html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JNOBOT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .filter-slider input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            background: #007bff;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-top: -5px;
+        }
+
+        .filter-slider input[type="range"]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 5px;
+            background: #d1d5db;
+            border-radius: 5px;
+        }
+
+        .pagination-dot {
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-sm py-4 px-6 md:px-12 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+            <!-- Replace this with your logo image link -->
+            <img src="https://placehold.co/40x40/d1e1f1/007bff?text=Logo" alt="JNOBOT Logo" class="w-10 h-10">
+            <span class="text-2xl font-bold text-gray-800">JNO</span><span class="text-2xl font-bold text-blue-600">BOT</span>
+        </div>
+        <div class="hidden md:flex items-center space-x-4 flex-1 max-w-2xl mx-auto">
+            <div class="relative w-full">
+                <input type="text" placeholder="Search Chokdi Street, near forum mall, Bangalore" class="w-full pl-10 pr-4 py-2 rounded-full bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+            </div>
+            <div class="flex items-center bg-gray-100 rounded-full px-4 py-2 border border-gray-300">
+                <input type="date" value="2025-09-20" class="bg-transparent text-gray-600 text-sm focus:outline-none">
+                <span class="text-gray-400 mx-1">|</span>
+                <input type="date" value="2025-09-27" class="bg-transparent text-gray-600 text-sm focus:outline-none">
+                <i class="fas fa-calendar-alt text-gray-400 ml-2"></i>
+            </div>
+        </div>
+        <div class="hidden md:flex items-center space-x-4">
+            <button class="text-sm text-gray-600 font-medium hover:text-blue-600">Become a Vendor</button>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-700">Login/Signup</button>
+        </div>
+        <div class="md:hidden">
+            <i class="fas fa-bars text-gray-600 text-2xl"></i>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-6 md:px-12 py-8 flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8">
+        <!-- Sidebar Filters -->
+        <aside class="w-full md:w-1/4 lg:w-1/5 bg-white p-6 rounded-xl shadow-md self-start">
+            <h2 class="text-xl font-bold text-gray-800 mb-6">Filters</h2>
+            <!-- Total Price Filter -->
+            <div class="mb-6">
+                <h3 class="font-medium text-gray-700 mb-2">Total Price</h3>
+                <div class="flex items-center justify-between text-gray-500 text-sm mb-2">
+                    <span>Min Price</span>
+                    <span>Max Price</span>
+                </div>
+                <div class="relative filter-slider">
+                    <input type="range" min="0" max="100" value="70" class="w-full h-1 bg-gray-200 rounded-full appearance-none cursor-pointer">
+                </div>
+            </div>
+            <!-- Delivery Type Filter -->
+            <div>
+                <h3 class="font-medium text-gray-700 mb-4">Delivery Type</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-3">
+                        <input type="checkbox" id="homeDelivery" class="mt-1 form-checkbox h-4 w-4 text-blue-600 rounded focus:ring-blue-500">
+                        <div class="text-gray-600">
+                            <label for="homeDelivery" class="block font-medium">Home Delivery</label>
+                            <p class="text-xs text-gray-400">Delivery charges applicable</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <input type="checkbox" id="showroomPickup" class="mt-1 form-checkbox h-4 w-4 text-blue-600 rounded focus:ring-blue-500">
+                        <div class="text-gray-600">
+                            <label for="showroomPickup" class="block font-medium">Showroom Pickup</label>
+                            <p class="text-xs text-gray-400">No additional charges applicable</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Listing Area -->
+        <div class="flex-1">
+            <!-- Search & Sort Bar -->
+            <div class="flex flex-col sm:flex-row items-center justify-between mb-6 space-y-4 sm:space-y-0">
+                <h2 id="robot-count" class="text-lg text-gray-600 font-medium">Showing Robots at</h2>
+                <div class="flex items-center space-x-4">
+                    <select class="p-2 rounded-full border border-gray-300 bg-gray-100 text-sm text-gray-600 focus:outline-none">
+                        <option value="">Category</option>
+                        <option value="Restaurant">Restaurant</option>
+                        <option value="Education">Education</option>
+                        <option value="Photography">Photography</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Receptionist">Receptionist</option>
+                    </select>
+                    <select class="p-2 rounded-full border border-gray-300 bg-gray-100 text-sm text-gray-600 focus:outline-none">
+                        <option value="">Relevance</option>
+                        <option value="Low Price">Low Price</option>
+                        <option value="Nearby">Nearby</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Robot Cards Grid -->
+            <div id="robot-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Cards will be injected here by JavaScript -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex justify-center items-center mt-8 space-x-4">
+                <button id="prev-btn" class="p-3 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-200 transition-colors">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div id="pagination-dots" class="flex space-x-2">
+                    <!-- Dots will be injected here by JavaScript -->
+                </div>
+                <button id="next-btn" class="p-3 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-200 transition-colors">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white py-8 px-6 md:px-12 mt-12">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            <!-- Logo & Description -->
+            <div class="lg:col-span-2">
+                <div class="flex items-center space-x-2 mb-2">
+                    <img src="https://placehold.co/40x40/d1e1f1/007bff?text=Logo" alt="JNOBOT Logo" class="w-10 h-10">
+                    <span class="text-2xl font-bold text-gray-800">JNO</span><span class="text-2xl font-bold text-blue-600">BOT</span>
+                </div>
+                <p class="text-gray-600 text-sm">Bridging the gap between robot vendors and businesses with affordable rentals and sales.</p>
+            </div>
+            <!-- Subscribe Section -->
+            <div class="md:col-span-2 lg:col-span-1">
+                <p class="text-gray-600 text-sm mb-2">Subscribe to stay tuned for new website and latest updates. Let's do it.</p>
+                <div class="flex items-center space-x-2">
+                    <input type="email" placeholder="Enter your email" class="flex-1 p-2 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500">
+                    <button class="bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-900">Subscribe</button>
+                </div>
+            </div>
+            <!-- Socials & Contact -->
+            <div class="md:col-span-1 lg:col-span-1">
+                <p class="text-gray-600 text-sm font-medium mb-2">Follow us</p>
+                <div class="flex space-x-4 mb-4">
+                    <a href="#" class="text-gray-500 hover:text-blue-600"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-blue-600"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-blue-600"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-blue-600"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p class="text-gray-600 text-sm font-medium mb-1">Call us</p>
+                <a href="tel:+91889883638" class="text-gray-600 text-sm hover:underline">+91 889883638</a>
+            </div>
+        </div>
+        <div class="border-t border-gray-200 mt-8 pt-4 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 space-y-2 md:space-y-0">
+            <div class="flex space-x-4">
+                <a href="#" class="hover:underline">Privacy Policy</a>
+                <a href="#" class="hover:underline">Terms of Use</a>
+                <a href="#" class="hover:underline">Sales and Refunds</a>
+                <a href="#" class="hover:underline">Legal</a>
+            </div>
+            <p>&copy; 2023 JNOBOT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const robotData = [
+                { name: 'Romy', role: 'Restaurant Robot', price: '₹ 2000/W', delivery: 'Delivery & Pickup Available', distance: '30 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+1', deliveryType: 'Both' },
+                { name: 'Vira', role: 'Promotion Robot', price: '₹ 2500/W', delivery: 'Delivery & Pickup Available', distance: '30 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+2', deliveryType: 'Both' },
+                { name: 'Cammy', role: 'Photography Robot', price: '₹ 3000/W', delivery: 'Delivery & Pickup Available', distance: '30 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+3', deliveryType: 'Both' },
+                { name: 'Romy', role: 'Restaurant Robot', price: '₹ 2000/W', delivery: 'Home Delivery Available', distance: '30 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+4', deliveryType: 'Home' },
+                { name: 'Vira', role: 'Promotion Robot', price: '₹ 2500/W', delivery: 'Home Delivery Available', distance: '30 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+5', deliveryType: 'Home' },
+                { name: 'Cammy', role: 'Photography Robot', price: '₹ 3000/W', delivery: 'Home Delivery Available', distance: '30 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+6', deliveryType: 'Home' },
+                { name: 'Romy', role: 'Showroom Pickup Available', price: '₹ 2000/W', delivery: 'Showroom Pickup Available', distance: '30 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+7', deliveryType: 'Pickup' },
+                { name: 'Vira', role: 'Showroom Pickup Available', price: '₹ 2500/W', delivery: 'Showroom Pickup Available', distance: '30 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+8', deliveryType: 'Pickup' },
+                { name: 'Cammy', role: 'Showroom Pickup Available', price: '₹ 3000/W', delivery: 'Showroom Pickup Available', distance: '30 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+9', deliveryType: 'Pickup' },
+                { name: 'Robbie', role: 'Security Robot', price: '₹ 2200/W', delivery: 'Home Delivery Available', distance: '25 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+10', deliveryType: 'Home' },
+                { name: 'Nexus', role: 'Cleaning Robot', price: '₹ 1800/W', delivery: 'Showroom Pickup Available', distance: '40 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+11', deliveryType: 'Pickup' },
+                { name: 'Aether', role: 'Logistics Robot', price: '₹ 3500/W', delivery: 'Delivery & Pickup Available', distance: '15 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+12', deliveryType: 'Both' },
+                { name: 'Cosmo', role: 'Entertainment Robot', price: '₹ 2800/W', delivery: 'Home Delivery Available', distance: '50 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+13', deliveryType: 'Home' },
+                { name: 'Unit-734', role: 'Medical Assistant', price: '₹ 4500/W', delivery: 'Showroom Pickup Available', distance: '35 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+14', deliveryType: 'Pickup' },
+                { name: 'Gizmo', role: 'Bartender Robot', price: '₹ 3200/W', delivery: 'Delivery & Pickup Available', distance: '20 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+15', deliveryType: 'Both' },
+                { name: 'Zippy', role: 'Courier Robot', price: '₹ 2100/W', delivery: 'Showroom Pickup Available', distance: '10 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+16', deliveryType: 'Pickup' },
+                { name: 'Kodiak', role: 'Construction Robot', price: '₹ 5000/W', delivery: 'Home Delivery Available', distance: '45 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+17', deliveryType: 'Home' },
+                { name: 'Pebble', role: 'Gardening Robot', price: '₹ 1500/W', delivery: 'Showroom Pickup Available', distance: '60 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+18', deliveryType: 'Pickup' },
+                { name: 'Cinder', role: 'Chef Robot', price: '₹ 4000/W', delivery: 'Home Delivery Available', distance: '18 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+19', deliveryType: 'Home' },
+                { name: 'Tango', role: 'Dance Partner', price: '₹ 2700/W', delivery: 'Delivery & Pickup Available', distance: '22 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+20', deliveryType: 'Both' },
+                { name: 'Blade', role: 'Window Cleaner', price: '₹ 1900/W', delivery: 'Showroom Pickup Available', distance: '28 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+21', deliveryType: 'Pickup' },
+                { name: 'Atlas', role: 'Surveyor Robot', price: '₹ 3800/W', delivery: 'Home Delivery Available', distance: '12 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+22', deliveryType: 'Home' },
+                { name: 'Aura', role: 'Receptionist Robot', price: '₹ 2600/W', delivery: 'Delivery & Pickup Available', distance: '33 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+23', deliveryType: 'Both' },
+                { name: 'Milo', role: 'Companion Robot', price: '₹ 2400/W', delivery: 'Showroom Pickup Available', distance: '42 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+24', deliveryType: 'Pickup' },
+                { name: 'Sparky', role: 'Electrician Robot', price: '₹ 3100/W', delivery: 'Home Delivery Available', distance: '27 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+25', deliveryType: 'Home' },
+                { name: 'Ollie', role: 'Retail Assistant', price: '₹ 2300/W', delivery: 'Showroom Pickup Available', distance: '19 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+26', deliveryType: 'Pickup' },
+                { name: 'Stitch', role: 'Tailor Robot', price: '₹ 3900/W', delivery: 'Delivery & Pickup Available', distance: '55 km away', image: 'https://placehold.co/200x200/d1e1f1/007bff?text=Robot+27', deliveryType: 'Both' }
+            ];
+
+            const grid = document.getElementById('robot-grid');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const robotCount = document.getElementById('robot-count');
+            const paginationDots = document.getElementById('pagination-dots');
+            const homeDeliveryCheckbox = document.getElementById('homeDelivery');
+            const showroomPickupCheckbox = document.getElementById('showroomPickup');
+
+            const cardsPerPage = 9;
+            let currentPage = 0;
+            let filteredData = [];
+
+            function renderCards(data) {
+                grid.innerHTML = '';
+                const start = currentPage * cardsPerPage;
+                const end = start + cardsPerPage;
+                const robotsToRender = data.slice(start, end);
+
+                robotsToRender.forEach(robot => {
+                    const card = document.createElement('div');
+                    card.className = 'bg-white p-4 rounded-xl shadow-md flex flex-col items-center text-center';
+                    card.innerHTML = `
+                        <div class="relative w-full mb-4">
+                            <img src="${robot.image}" alt="${robot.name}" class="w-full h-48 object-cover rounded-xl">
+                            <div class="absolute top-2 right-2 bg-blue-600 text-white text-xs px-2 py-1 rounded-full font-medium">
+                                <i class="fas fa-check-circle mr-1"></i>Verified
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">${robot.name}</h3>
+                        <p class="text-sm text-gray-500 mb-4">${robot.role}</p>
+                        <div class="flex items-center justify-between w-full mb-4">
+                            <div class="flex items-center text-green-500">
+                                <i class="fas fa-truck text-xs mr-2"></i>
+                                <span class="text-xs font-medium">${robot.delivery}</span>
+                            </div>
+                            <span class="text-lg font-bold text-gray-800">${robot.price}</span>
+                        </div>
+                        <div class="flex items-center text-gray-400 text-xs w-full">
+                            <i class="fas fa-map-marker-alt mr-1"></i>
+                            <span>(Robot Roms, Mandi Dhanura (${robot.distance}))</span>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+
+                updatePagination(data);
+            }
+
+            function updatePagination(data) {
+                const totalPages = Math.ceil(data.length / cardsPerPage);
+                robotCount.textContent = `Showing ${data.length} Robots at`;
+
+                paginationDots.innerHTML = '';
+                for (let i = 0; i < totalPages; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = `w-2 h-2 rounded-full cursor-pointer pagination-dot ${i === currentPage ? 'bg-blue-600' : 'bg-gray-300'}`;
+                    dot.addEventListener('click', () => {
+                        currentPage = i;
+                        renderCards(data);
+                    });
+                    paginationDots.appendChild(dot);
+                }
+
+                prevBtn.disabled = currentPage === 0;
+                nextBtn.disabled = currentPage === totalPages - 1;
+
+                prevBtn.classList.toggle('opacity-50', prevBtn.disabled);
+                prevBtn.classList.toggle('cursor-not-allowed', prevBtn.disabled);
+
+                nextBtn.classList.toggle('opacity-50', nextBtn.disabled);
+                nextBtn.classList.toggle('cursor-not-allowed', nextBtn.disabled);
+            }
+
+            function filterCards() {
+                const homeChecked = homeDeliveryCheckbox.checked;
+                const showroomChecked = showroomPickupCheckbox.checked;
+
+                if (!homeChecked && !showroomChecked) {
+                    filteredData = robotData;
+                } else if (homeChecked && !showroomChecked) {
+                    filteredData = robotData.filter(robot => robot.deliveryType === 'Home' || robot.deliveryType === 'Both');
+                } else if (!homeChecked && showroomChecked) {
+                    filteredData = robotData.filter(robot => robot.deliveryType === 'Pickup' || robot.deliveryType === 'Both');
+                } else {
+                    // Both checked
+                    filteredData = robotData.filter(robot => robot.deliveryType === 'Both');
+                }
+                
+                currentPage = 0; // Reset to the first page after filtering
+                renderCards(filteredData);
+            }
+
+            homeDeliveryCheckbox.addEventListener('change', filterCards);
+            showroomPickupCheckbox.addEventListener('change', filterCards);
+
+            prevBtn.addEventListener('click', () => {
+                if (currentPage > 0) {
+                    currentPage--;
+                    renderCards(filteredData);
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentPage < Math.ceil(filteredData.length / cardsPerPage) - 1) {
+                    currentPage++;
+                    renderCards(filteredData);
+                }
+            });
+
+            // Initial render
+            filterCards();
+        });
+    </script>
+</body>
+</html>
