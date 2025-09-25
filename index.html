@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JNO BOT</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome (for icons) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/home.css">
+ 
+</head>
+<body>
+<!-- Header Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    
+    <!-- Logo on the left -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="logo.png" alt="Logo" width="40" height="40" class="me-2">
+     <span class="fw-bold">JNO</span><span class="text-primary fw-bold">BOT</span>
+    </a>
+
+    <!-- Toggle button for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation on the right -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav d-flex text-center" style="min-width: 300px;">
+        
+        <!-- Nav Item 1 -->
+        <li class="nav-item flex-fill nav-btn me-3">
+          <a class="nav-link d-flex align-items-center justify-content-center text-dark" href="#">
+            <img src="icon1.png" alt="Icon 1" width="20" height="20" class="me-2">
+            Become a Vendor
+          </a>
+        </li>
+
+        <!-- Nav Item 2 -->
+        <li class="nav-item flex-fill nav-btn me-3">
+          <a class="nav-link d-flex align-items-center justify-content-center text-dark" href="#">
+            <img src="icon2.png" alt="Icon 2" width="20" height="20" class="me-2 ">
+           Get the App
+          </a>
+        </li>
+
+        <!-- Nav Item 3 -->
+        <li class="nav-item flex-fill nav-btn">
+          <a class="nav-link d-flex align-items-center justify-content-center text-dark" href="#">
+            <img src="icon3.png" alt="Icon 3" width="20" height="20" class="me-2 ">
+           Login/Signup
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Hero Section -->
+ <section class="hero-section">
+            <div class="container">
+                <div class="row align-items-center gy-4">
+                    <!-- Tabs for Rent/Buy -->
+                    <div class="col-lg-6">
+                        <div class="card p-4">
+                            <ul class="nav nav-tabs" id="robotTab" role="tablist">
+                                <li class="nav-item tab-titles" role="presentation">
+                                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#rent" type="button" role="tab" aria-controls="rent" aria-selected="true">
+                                        <h5>Rent a Robot</h5>
+                                        <p>Subscription based rental</p>
+                                    </button>
+                                </li>
+                                <li class="nav-item tab-titles" role="presentation">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#buy" type="button" role="tab" aria-controls="buy" aria-selected="false">
+                                        <h5>Buy your Robot</h5>
+                                        <p>want to buy a robot?</p>
+                                    </button>
+                                </li>
+                            </ul>
+                            <div class="tab-content pt-3">
+                                <!-- Rent a Robot Tab -->
+                                <div class="tab-pane fade show active" id="rent" role="tabpanel" aria-labelledby="rent-tab">
+                                    <div class="btn-group w-100 mb-3" role="group">
+                                        <input type="radio" class="btn-check" name="rent-options" id="rent-weekly" autocomplete="off" checked>
+                                        <label class="btn btn-outline-primary" for="rent-weekly">Weekly</label>
+
+                                        <input type="radio" class="btn-check" name="rent-options" id="rent-monthly" autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="rent-monthly">Monthly</label>
+
+                                        <input type="radio" class="btn-check" name="rent-options" id="rent-yearly" autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="rent-yearly">Yearly</label>
+                                    </div>
+                                    <h4 class="fw-bold mb-3">Looking for best Robot Rentals?</h4>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <h3 class="fw-bold">Best Rental Robots in <span class="text-primary">Delhi NCR</span></h3>
+                                        <i class="bi bi-chevron-down ms-auto text-primary fs-5"></i>
+                                    </div>
+                                    <form action="./Rent-Robot.html" method="get">
+                                        <div class="row g-3">
+                                            <div class="col-12">
+                                                <input type="text" class="form-control" placeholder="Location">
+                                            </div>
+                                            <div class="col-12">
+                                                <input type="text" class="form-control" placeholder="Category">
+                                            </div>
+                                            <div class="col-12 d-flex">
+                                                <input type="text" class="form-control me-2" placeholder="Week Starts">
+                                                <input type="text" class="form-control" placeholder="Week End">
+                                            </div>
+                                            <div class="col-12 form-check ps-4">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label ms-2" for="flexCheckDefault">
+                                                    Delivery and Pick-up, from anywhere
+                                                </label>
+                                            </div>
+                                            <div class="col-12 mt-4">
+                                                <button type="submit" class="btn btn-primary w-100 py-2">SEARCH
+                                                </button>
+                                              
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- Buy a Robot Tab -->
+                                <div class="tab-pane fade" id="buy" role="tabpanel" aria-labelledby="buy-tab">
+                                    <h4 class="fw-bold mb-3">Looking for buying best Robot Rentals?</h4>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <h3 class="fw-bold">Best Robots in <span class="text-primary">Delhi NCR</span></h3>
+                                        <i class="bi bi-chevron-down ms-auto text-primary fs-5"></i>
+                                    </div>
+                                    <form action="./Rent-Robot.html" method="get">
+                                        <div class="row g-3">
+                                            <div class="col-12">
+                                                <input type="text" class="form-control" placeholder="Location">
+                                            </div>
+                                            <div class="col-12">
+                                                <input type="text" class="form-control" placeholder="Category">
+                                            </div>
+                                            <div class="col-12 form-check ps-4">
+                                                <input class="form-check-input" type="checkbox" value="" id="buyCheckDefault">
+                                                <label class="form-check-label ms-2" for="buyCheckDefault">
+                                                    Delivery anywhere
+                                                </label>
+                                            </div>
+                                            <div class="col-12 mt-4">
+                                                <button class="btn btn-primary w-100 py-2">SEARCH</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Subscription Info -->
+                    <div class="col-lg-6 text-center text-lg">
+                        <h1><span class="fw-bold">JNO</span><span class="text-primary fw-bold">BOT</span> SUBSCRIPTION</h1>
+                        <p>Get discounted prices on 1 year+ booking</p>
+                        <div class="d-flex flex-wrap justify-content-center justify-content-lg gap-4 mt-4">
+                            <div class="icon-item"><img src="" alt="Star Icon"><p class="mt-2">Top Rated Robots</p></div>
+                            <div class="icon-item"><img src="" alt="Dollar Icon"><p class="mt-2">Flexible Returns</p></div>
+                            <div class="icon-item"><img src="" alt="Support Icon"><p class="mt-2">Priority Support</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- Vendors Slider -->
+<!-- <section class="py-5">
+  <div class="container">
+    <h3 class="text-center mb-4">Top Robot Vendors in Bangalore</h3>
+    <div id="vendorCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+      
+        <div class="carousel-item active">
+          <div class="row g-4">
+            <div class="col-12 col-sm-6 col-lg-4"><div class="card vendor-card"><img src="https://source.unsplash.com/400x250/?robot"><div class="card-body"><h5>Novatech AI</h5><p>Delivery & Pickup</p><span class="fw-bold text-primary">₹2000/W</span></div></div></div>
+            <div class="col-12 col-sm-6 col-lg-4"><div class="card vendor-card"><img src="https://source.unsplash.com/401x250/?ai,robot"><div class="card-body"><h5>JnoBot.ai</h5><p>Delivery & Pickup</p><span class="fw-bold text-primary">₹2500/W</span></div></div></div>
+            <div class="col-12 col-sm-6 col-lg-4"><div class="card vendor-card"><img src="https://source.unsplash.com/402x250/?technology,robot"><div class="card-body"><h5>Robogic Tech</h5><p>Delivery & Pickup</p><span class="fw-bold text-primary">₹3000/W</span></div></div></div>
+          </div>
+        </div>
+       
+        <div class="carousel-item">
+          <div class="row g-4">
+            <div class="col-12 col-sm-6 col-lg-4"><div class="card vendor-card"><img src="https://source.unsplash.com/403x250/?robotics"><div class="card-body"><h5>AI Works</h5><p>Delivery & Pickup</p><span class="fw-bold text-primary">₹2200/W</span></div></div></div>
+            <div class="col-12 col-sm-6 col-lg-4"><div class="card vendor-card"><img src="https://source.unsplash.com/404x250/?cyber,robot"><div class="card-body"><h5>CyberBotics</h5><p>Delivery & Pickup</p><span class="fw-bold text-primary">₹2800/W</span></div></div></div>
+            <div class="col-12 col-sm-6 col-lg-4"><div class="card vendor-card"><img src="https://source.unsplash.com/405x250/?machine,robot"><div class="card-body"><h5>Future Robotics</h5><p>Delivery & Pickup</p><span class="fw-bold text-primary">₹2600/W</span></div></div></div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#vendorCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+      <button class="carousel-control-next" type="button" data-bs-target="#vendorCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+    </div>
+  </div>
+</section> -->
+
+<!-- Vendor Section -->
+<section class="py-5" style="background-color: #f5f5f5;">
+  <div class="container">
+    <div class="bg-white rounded-3 shadow p-4">
+      <h2 class="text-center fw-bold mb-4">Top Robot Vendors in Bangalore</h2>
+
+      <!-- Carousel -->
+      <div id="vendorCarousel" class="carousel slide" data-bs-ride="false">
+        <div class="carousel-inner">
+
+          <!-- First Slide -->
+          <div class="carousel-item active">
+            <div class="row g-4">
+              <div class="col-md-4">
+                <div class="card h-100 shadow-sm vendor-card">
+                  <div class="img-overlay-container">
+                    <img src="/images/Novatech-AI.png" class="card-img-top" alt="Novatech">
+                    <div class="overlay-content">
+                      <div class="vendor-name-and-rating">
+                        <h5 class="vendor-name">Novatech AI</h5>
+                        <div class="rating-badge">
+                          <span class="star-icon">&#9733;</span>
+                          4.8(24)
+                        </div>
+                      </div>
+                      <div class="vendor-details">
+                        <span class="category-text">Restaurant • Photography • Shops</span>
+                        <span class="rating-text">Excellent</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <p class="card-text text-muted mb-0"><i class="bi bi-truck me-2"></i>Delivery Available</p>
+                      <p class="fw-bold mb-0">₹2500/W</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-geo-alt-fill me-2"></i>
+                      <p class="card-text text-muted small mb-0">Novatech AI, Mandi Dhanura (1.8 km away)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card h-100 shadow-sm vendor-card">
+                  <div class="img-overlay-container">
+                    <img src="/images/JnoBot.png" class="card-img-top" alt="JnoBot">
+                    <div class="overlay-content">
+                      <div class="vendor-name-and-rating">
+                        <h5 class="vendor-name">JnoBot.ai</h5>
+                        <div class="rating-badge">
+                          <span class="star-icon">&#9733;</span>
+                          3.8(29)
+                        </div>
+                      </div>
+                      <div class="vendor-details">
+                        <span class="category-text">Marketing • Receptionist • Billings</span>
+                        <span class="rating-text">Good</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <p class="card-text text-muted mb-0"><i class="bi bi-truck me-2"></i>Delivery & Pickup Available</p>
+                      <p class="fw-bold mb-0">₹3000/W</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-geo-alt-fill me-2"></i>
+                      <p class="card-text text-muted small mb-0">JnoBot Pvt.Ltd., Knowledge park 2 (4.6 km away)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card h-100 shadow-sm vendor-card">
+                  <div class="img-overlay-container">
+                    <img src="/images/Robogic-Technologies.png" class="card-img-top" alt="Robogic">
+                    <div class="overlay-content">
+                      <div class="vendor-name-and-rating">
+                        <h5 class="vendor-name">Robogic Technologies</h5>
+                        <div class="rating-badge">
+                          <span class="star-icon">&#9733;</span>
+                          2.7(41)
+                        </div>
+                      </div>
+                      <div class="vendor-details">
+                        <span class="category-text">Restaurant • Photography • Shops</span>
+                        <span class="rating-text">Fair</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <p class="card-text text-muted mb-0"><i class="bi bi-truck me-2"></i>Delivery & Pickup Available</p>
+                      <p class="fw-bold mb-0">₹3000/W</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-geo-alt-fill me-2"></i>
+                      <p class="card-text text-muted small mb-0">Robogic Technologies, Meerut road (30 km away)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second Slide -->
+          <div class="carousel-item">
+            <div class="row g-4">
+              <div class="col-md-4">
+                <div class="card h-100 shadow-sm vendor-card">
+                  <div class="img-overlay-container">
+                    <img src="/images/JnoBot.png" class="card-img-top" alt="NextGen">
+                    <div class="overlay-content">
+                      <div class="vendor-name-and-rating">
+                        <h5 class="vendor-name">NextGen Robotics</h5>
+                        <div class="rating-badge">
+                          <span class="star-icon">&#9733;</span>
+                          4.5(15)
+                        </div>
+                      </div>
+                      <div class="vendor-details">
+                        <span class="category-text">Delivery Available</span>
+                        <span class="rating-text">Excellent</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <p class="card-text text-muted mb-0"><i class="bi bi-truck me-2"></i>Delivery Available</p>
+                      <p class="fw-bold mb-0">₹2800/W</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-geo-alt-fill me-2"></i>
+                      <p class="card-text text-muted small mb-0">NextGen Robotics, Electronic City (5.2 km away)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card h-100 shadow-sm vendor-card">
+                  <div class="img-overlay-container">
+                    <img src="/images/Novatech-AI.png" class="card-img-top" alt="FutureBots">
+                    <div class="overlay-content">
+                      <div class="vendor-name-and-rating">
+                        <h5 class="vendor-name">FutureBots</h5>
+                        <div class="rating-badge">
+                          <span class="star-icon">&#9733;</span>
+                          4.1(10)
+                        </div>
+                      </div>
+                      <div class="vendor-details">
+                        <span class="category-text">Delivery & Pickup Available</span>
+                        <span class="rating-text">Good</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <p class="card-text text-muted mb-0"><i class="bi bi-truck me-2"></i>Delivery & Pickup Available</p>
+                      <p class="fw-bold mb-0">₹3200/W</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-geo-alt-fill me-2"></i>
+                      <p class="card-text text-muted small mb-0">FutureBots, Whitefield (8.1 km away)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card h-100 shadow-sm vendor-card">
+                  <div class="img-overlay-container">
+                    <img src="/images/Robogic-Technologies.png" class="card-img-top" alt="AI Machines">
+                    <div class="overlay-content">
+                      <div class="vendor-name-and-rating">
+                        <h5 class="vendor-name">AI Machines</h5>
+                        <div class="rating-badge">
+                          <span class="star-icon">&#9733;</span>
+                          3.9(33)
+                        </div>
+                      </div>
+                      <div class="vendor-details">
+                        <span class="category-text">Delivery Available</span>
+                        <span class="rating-text">Good</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <p class="card-text text-muted mb-0"><i class="bi bi-truck me-2"></i>Delivery Available</p>
+                      <p class="fw-bold mb-0">₹3500/W</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-geo-alt-fill me-2"></i>
+                      <p class="card-text text-muted small mb-0">AI Machines, Koramangala (2.5 km away)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Custom Arrows -->
+        <button class="carousel-control-prev custom-arrow" type="button" data-bs-target="#vendorCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next custom-arrow" type="button" data-bs-target="#vendorCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+
+        <!-- Dots Indicators -->
+        <div class="carousel-indicators mt-4">
+          <button type="button" data-bs-target="#vendorCarousel" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#vendorCarousel" data-bs-slide-to="1"></button>
+        </div>
+      </div>
+
+      <!-- Browse Button -->
+      <div class="text-center mt-4">
+        <button class="btn btn-dark px-4 py-2">Browse All Vendors</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- Services Slider -->
+<section class="services-section py-5 bg-light">
+  <div class="container">
+    <h3 class="text-center mb-4">Most used Most trusted Most effective</h3>
+    <div id="servicesCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row g-4">
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="card">
+                <div class="image-overlay-container">
+                  <img src="images/resturent-robot.png" alt="Restaurant Robot">
+                  <div class="robot-info-overlay">
+                    <span class="robot-name">Restaurant Robot</span>
+                    <span class="robot-rating">⭐ 4.8 (24)</span>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h5>Restaurant</h5>
+                  <ul>
+                    <li>Greets and guides guests</li>
+                    <li>Delivers food & drinks</li>
+                    <li>Easy touch-screen menu</li>
+                    <li>Smart obstacle avoidance</li>
+                    <li>Multilingual support</li>
+                    <li>Contactless & hygienic</li>
+                    <li>Boosts staff efficiency</li>
+                    <li>Fun, interactive experience</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="card">
+                <div class="image-overlay-container">
+                  <img src="images/Promotion-robot.png" alt="Promotion Robot">
+                  <div class="robot-info-overlay">
+                    <span class="robot-name">Promotion Robot</span>
+                    <span class="robot-rating">⭐ 4.7 (40)</span>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h5>Marketing</h5>
+                  <ul>
+                    <li>Runs 24/7 nonstop</li>
+                    <li>Always accurate</li>
+                    <li>Cuts costs</li>
+                    <li>Grows with you</li>
+                    <li>Easy setup</li>
+                    <li>Real-time insights</li>
+                    <li>Fully customization</li>
+                    <li>Reliable support</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="card">
+                <div class="image-overlay-container">
+                  <img src="images/Photography-Robot.png" alt="Photography Robot">
+                  <div class="robot-info-overlay">
+                    <span class="robot-name">Photography Robot</span>
+                    <span class="robot-rating">⭐ 4.8 (24)</span>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h5>Photography</h5>
+                  <ul>
+                    <li>Captures photos 24/7</li>
+                    <li>Sharp and clear shots</li>
+                    <li>Saves photography costs</li>
+                    <li>Covers wide angles</li>
+                    <li>Easy to operate</li>
+                    <li>Instant image delivery</li>
+                    <li>Custom shooting modes</li>
+                    <li>Reliable performance</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="card">
+                <div class="image-overlay-container">
+                  <img src="images/JnoBot.png" alt="Receptionist Robot">
+                  <div class="robot-info-overlay">
+                    <span class="robot-name">Receptionist Robot</span>
+                    <span class="robot-rating">⭐ 4.8 (24)</span>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h5>Receptionist</h5>
+                  <ul>
+                    <li>Greets guests 24/7</li>
+                    <li>Gives accurate info</li>
+                    <li>Cuts staffing costs</li>
+                    <li>Manages many queries</li>
+                    <li>Simple to use</li>
+                    <li>Fast check-in help</li>
+                    <li>Custom greetings</li>
+                    <li>Always reliable</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row g-4">
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="card">
+                <div class="image-overlay-container">
+                  <img src="images/resturent-robot.png" alt="Helper Robot">
+                  <div class="robot-info-overlay">
+                    <span class="robot-name">Helper Robot</span>
+                    <span class="robot-rating">⭐ 4.8 (XX)</span> </div>
+                </div>
+                <div class="card-body">
+                  <h5>Helper</h5>
+                  <p>Assist at events</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="card">
+                <div class="image-overlay-container">
+                  <img src="images/Promotion-robot.png" alt="AI Support Robot">
+                  <div class="robot-info-overlay">
+                    <span class="robot-name">AI Support Robot</span>
+                    <span class="robot-rating">⭐ 4.7 (XX)</span> </div>
+                </div>
+                <div class="card-body">
+                  <h5>AI Support</h5>
+                  <p>Handles queries</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="card">
+                <div class="image-overlay-container">
+                  <img src="images/Photography-Robot.png" alt="Tech Assistant Robot">
+                  <div class="robot-info-overlay">
+                    <span class="robot-name">Tech Assistant Robot</span>
+                    <span class="robot-rating">⭐ 4.8 (XX)</span> </div>
+                </div>
+                <div class="card-body">
+                  <h5>Tech Assistant</h5>
+                  <p>Manages tasks</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="card">
+                <div class="image-overlay-container">
+                  <img src="images/JnoBot.png" alt="Automation Bot">
+                  <div class="robot-info-overlay">
+                    <span class="robot-name">Automation Bot</span>
+                    <span class="robot-rating">⭐ 4.8 (XX)</span> </div>
+                </div>
+                <div class="card-body">
+                  <h5>Automation Bot</h5>
+                  <p>Automates workflow</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+      <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- Clients Infinite Slider -->
+<!-- Clients Infinite Slider -->
+<section class="clients-section">
+  <h4 class="mb-4">We love our clients</h4>
+  <div class="clients-track">
+    <div class="clients-slide">
+      <!-- First Set -->
+      <img src="images/bk.png" alt="Burger King">
+       <img src="images/freakers.png" alt="freakers">
+        <img src="images/food.png" alt="Food">
+        <img src="images/levis.png" alt="Levis">
+        <img src="images/adidas.png" alt="Adidas">
+      
+      
+
+      <!-- Duplicate Set for Infinite Effect -->
+       <img src="images/bk.png" alt="Burger King">
+       <img src="images/freakers.png" alt="freakers">
+        <img src="images/food.png" alt="Food">
+        <img src="images/levis.png" alt="Levis">
+        <img src="images/adidas.png" alt="Adidas">
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Footer -->
+<footer>
+  <div class="container d-flex flex-wrap justify-content-between">
+    <div>
+      <h5 class="text-primary">JNO<span class="text-dark">BOT</span></h5>
+      <p>Bridging the gap between robot vendors and businesses with affordable rentals and sales.</p>
+    </div>
+    <div class="mt-3 mt-md-0">
+      <h6>Subscribe</h6>
+      <form class="d-flex flex-column flex-sm-row">
+        <input type="email" class="form-control me-sm-2 mb-2 mb-sm-0" placeholder="Enter your email">
+        <button class="btn btn-success">Subscribe</button>
+      </form>
+    </div>
+    <div class="mt-3 mt-md-0">
+      <h6>Follow us</h6>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <p class="mt-2">Call us: +91 8908903016</p>
+    </div>
+  </div>
+  <hr>
+  <div class="text-center">
+    <a href="#">Privacy Policy</a> | 
+    <a href="#">Terms of Use</a> | 
+    <a href="#">Sales and Refunds</a> | 
+    <a href="#">Legal</a>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+ 
